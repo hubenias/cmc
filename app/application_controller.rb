@@ -21,7 +21,6 @@ class ApplicationController
 
   def erb(template)
     path = File.expand_path("../views/#{template}.html.erb", __FILE__)
-    puts path
     ERB.new(File.read(path)).result(binding)
   end
 end

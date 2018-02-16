@@ -5,16 +5,33 @@ xmlns="http://www.w3.org/1999/html">
   <link rel="stylesheet" href="public/application.css">
 </head>
 <br>
+<body>
+  <h1> <%= "Cryptocurrency Market Capitalizations(updated: #{Time.now})" %></h1>
 
-<h1> <%= "Cryptocurrency Market Capitalizations(updated: #{Time.now})" %></h1>
-
-<%= @coins.count %>
-</br>
-
-<% @report.each do |line| %>
-  <%= line %>
-  </br>
-<%end%>
+  <table style="width:100%">
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Market Cap.</th>
+      <th>Price</th>
+      <th>Avg. Price</th>
+      <th>Coin Price</th>
+      <th>Circ. Supply</th>
+      <th>Change</th>
+    </tr>
+    <% @report.each do |line| %>
+      <tr>
+        <td> <%= line['rank'] %> </td>
+        <td> <%= line['name'] %> </td>
+        <td> <%= line['market_cap'] %> </td>
+        <td> <%= line['price'] %> </td>
+        <td> <%= line['avg_price'] %> </td>
+        <td> <%= line['coin_price'] %> </td>
+        <td> <%= line['circ_supply'] %> </td>
+        <td> <%= line['change'] %> </td>
+      </tr>
+    <% end %>
+  </table>
 
 </body>
 </html>

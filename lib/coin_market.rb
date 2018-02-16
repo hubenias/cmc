@@ -13,9 +13,17 @@ class CoinMarket
     end
 
     def report(date = nil)
-      # just make proper structure
-      # make additional calculation for that
-      all
+      query = <<-SQL
+        SELECT
+          cm.rank, c.name, cm.market_cap, cm.price, 0 AS avg_price,
+          0 AS coin_price, cm.circ_supply, 0 AS change
+        FROM
+          coins_market cm
+          JOIN coins c ON cm.coin_id = c.id
+        ORDER BY
+          cm.rank, cm.time DESC;
+      SQL
+      DB.conn.exec(query).to_a
     end
 
     def all
