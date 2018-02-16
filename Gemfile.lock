@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    pg (0.21.0)
+    rack (2.0.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pg
+  rack
+
+BUNDLED WITH
+   1.15.4
